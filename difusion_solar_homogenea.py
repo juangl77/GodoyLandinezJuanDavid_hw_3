@@ -14,10 +14,12 @@ r0 = 100.0
 pasos = np.zeros(n)
 for i in range(n):
     k = 0
-    x = random.uniform(-r0,r0)
-    y = random.uniform(-r0,r0)
-    z = random.uniform(-r0,r0)
-    r = math.sqrt(x**2+y**2+z**2)
+    r = -r0+(1+i*2)*r0/float(n)
+    theta0 = i*2*math.pi/float(n)
+    phi0 = i*math.pi/float(n)-math.pi/2
+    z = r*math.sin(phi0)
+    y = r*math.cos(phi0)*math.sin(theta0)
+    x = r*math.cos(phi0)*math.cos(theta0)
     while(r < r0):
         theta = np.random.uniform(0,1)*2*math.pi
         phi = np.random.uniform(0,1)*math.pi - math.pi/2
